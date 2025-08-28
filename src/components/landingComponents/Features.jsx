@@ -25,7 +25,9 @@ const Features = () => {
     //     <h1 className="text-5xl font-bold">Features</h1>
     //     <p className="text-lg mt-2">Features that wander wise provides</p>
 
-    <section className="py-24 px-10 bg-gray-50" id="features">
+    // <section className="py-24 px-10 bg-gray-50" id="features">
+
+    <section className="py-24 px-10" id="features">
       <div className="container mx-auto px-4">
         {/* heading */}
         <div className="text-center mb-12">
