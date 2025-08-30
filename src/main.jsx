@@ -4,11 +4,18 @@ import "./index.css";
 import App from "./App.jsx";
 
 import { AuthProvider } from "./context/AuthContext";
+import ErrorBoundary from "./components/shared/ErrorBoundary";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <AuthProvider>
+    {/* <AuthProvider>
       <App />
-    </AuthProvider>
+    </AuthProvider> */}
+
+    <ErrorBoundary>
+      <AuthProvider>
+        <App />
+      </AuthProvider>
+    </ErrorBoundary>
   </StrictMode>
 );

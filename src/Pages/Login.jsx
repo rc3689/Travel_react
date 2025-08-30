@@ -1,22 +1,3 @@
-// import { loginUser, registerUser } from '@/api/auth';
-// import { Button } from '@/components/ui/button';
-// import useAuth from '@/hooks/useAuth';
-// import React, { useState } from 'react'
-// import { useNavigate } from 'react-router-dom';
-
-// const Login = () => {
-//     const  {login}  = useAuth();
-//     const { data, loading, error } = useApi()
-//   const navigate = useNavigate();
-
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     try {
-//         const form = {
-//             name: document.getElementById('name').value,
-//             email: document.getElementById('email').value,
-//             password: document.getElementById('password').value,
-
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -32,7 +13,8 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { loginUser, registerUser } from "@/api/auth";
+
+import { loginUser } from "@/api/auth";
 import useAuth from "@/hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 
@@ -66,14 +48,6 @@ export default function Login() {
       } else {
         alert(response.message || "Login failed");
       }
-
-      //   const response = await registerUser(form);
-      //   console.log(response);
-      // //   login({ email: form.email }, token);
-      //   navigate("/dashboard");
-      // } catch (err) {
-      //   console.error(err);
-      //   alert("Signup failed");
     } catch (error) {
       console.error(error);
       alert("Login failed");
@@ -81,12 +55,6 @@ export default function Login() {
   }
 
   return (
-    // <div>
-    //     <form>
-    //     <input id='name' type="text" placeholder='name' />
-    //     <input id='email' type="email" placeholder='email' />
-    //     <input id='password' type="password" placeholder='password' />
-
     <section className="flex justify-center items-center h-screen">
       <Form {...form}>
         <form
@@ -103,12 +71,6 @@ export default function Login() {
             <img src="/logo.png" alt="wander wise" className="w-10 h-10" />
           </div>
 
-          {/* <Button onClick={handleSubmit}>Signup</Button>
-        </form>
-
-    </div>
-  )
-} */}
           <FormField
             control={form.control}
             name="email"
