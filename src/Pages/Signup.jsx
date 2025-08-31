@@ -17,26 +17,6 @@ import { registerUser } from "@/api/auth";
 import useAuth from "@/hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 
-// const formSchema = z
-//   .object({
-//     name: z.string().min(2, {
-//       message: "Name must be at least 2 characters.",
-//     }),
-//     email: z
-//       .string()
-//       .min(5, { message: "Email must be at least 5 characters." }),
-//     password: z.string().min(8, {
-//       message: "Password must be at least 8 characters.",
-//     }),
-//     confirmPassword: z.string().min(8, {
-//       message: "Password must be at least 8 characters.",
-//     }),
-//   })
-//   .refine((data) => data.password === data.confirmPassword, {
-//     message: "Passwords do not match",
-//     path: ["confirmPassword"],
-//   });
-
 const formSchema = z
   .object({
     name: z.string().min(2, {
@@ -69,6 +49,12 @@ export default function Signup() {
       confirmPassword: "",
     },
   });
+
+  const { token } = useAuth();
+
+  if (token) {
+    navigate("/dashboard");
+  }
 
   async function onSubmit(data) {
     const { name, email, password } = data;

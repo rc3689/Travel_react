@@ -7,7 +7,11 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-8">
           <div>
             <div className="flex items-center space-x-2 mb-4">
-              <img src="/logo.png" alt="wander wise" className="h-10 w-10" />
+              <img
+                src="/travel_logo.png"
+                alt="wander wise"
+                className="h-10 w-10"
+              />
               <span className="text-xl font-bold">Wander Wise</span>
             </div>
             <p className="text-gray-400">
@@ -64,7 +68,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-          <p>&copy; 2024 WanderWise. All rights reserved.</p>
+          <p>&copy; WanderWise. All rights reserved.</p>
         </div>
       </div>
     </footer>

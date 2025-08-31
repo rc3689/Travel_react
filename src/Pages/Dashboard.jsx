@@ -1,7 +1,12 @@
+import UserTrips from "@/components/dashboardComponents/UserTrips";
 import React from "react";
 
 const Dashboard = () => {
-  return <div>Dashboard</div>;
-};
+  return (
+    // <div>Dashboard</div>
 
-export default Dashboard;
+    <main className="py-4 px-20">
+      <UserTrips />
+    </main>
+  );
+};

@@ -10,7 +10,7 @@ const Navbar = () => {
         {/* <img src="/vite.svg" alt="logo" />
         <h1>Wander Wise</h1> */}
 
-        <img src="/logo.png" alt="logo" className="h-10 w-10" />
+        <img src="/travel_logo.png" alt="logo" className="h-10 w-10" />
         <h1 className="text-2xl font-bold">Wander Wise</h1>
       </div>
 
