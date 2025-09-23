@@ -84,7 +84,7 @@ export default function Signup() {
             <div>
               <h1 className="text-2xl font-bold">Register</h1>
               <p className="text-xs text-gray-400">
-                Fill details to create a new account
+                Fill details to create a new account{" "}
               </p>
             </div>
             <img
@@ -168,5 +168,3 @@ export default function Signup() {
     </section>
   );
 }
-
-export { Signup };

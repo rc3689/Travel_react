@@ -1,19 +1,17 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import LandingPage from "./pages/LandingPage";
 import Login from "./pages/Login";
-
-// import { Signup } from "./pages/Signup";
-
-// import { Signup } from "/src/pages/Signup.jsx";
-
-import Signup from "./pages/Signup.jsx";
+import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
 import useAuth from "./hooks/useAuth";
 import { jwtDecode } from "jwt-decode";
-import AppLayout from "@/components/layout/AppLayout";
-import Trips from "@/pages/Trip";
+import AppLayout from "./components/layout/AppLayout";
+import Trips from "./pages/Trip";
+import AddTrip from "./pages/AddTrip";
 
 function App() {
+  const { token, logout } = useAuth();
+
   const ProtectedRoutes = () => {
     try {
       const decodedToken = token ? jwtDecode(token) : null;
@@ -50,6 +48,7 @@ function App() {
         <Route element={<ProtectedRoutes />}>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/trips" element={<Trips />} />
+          <Route path="/trips/add" element={<AddTrip />} />
         </Route>
       </Routes>
     </BrowserRouter>

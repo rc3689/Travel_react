@@ -13,7 +13,6 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-
 import { loginUser } from "@/api/auth";
 import useAuth from "@/hooks/useAuth";
 import { useNavigate } from "react-router-dom";
@@ -74,7 +73,11 @@ export default function Login() {
                 Enter your credentials to log in.
               </p>
             </div>
-            <img src="/logo.png" alt="wander wise" className="w-10 h-10" />
+            <img
+              src="/travel_logo.png"
+              alt="wander wise"
+              className="w-10 h-10"
+            />
           </div>
 
           <FormField
@@ -90,8 +93,6 @@ export default function Login() {
               </FormItem>
             )}
           />
-
-          {/* export default Login */}
 
           <FormField
             control={form.control}

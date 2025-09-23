@@ -3,10 +3,10 @@ import React from "react";
 
 const Dashboard = () => {
   return (
-    // <div>Dashboard</div>
-
     <main className="py-4 px-20">
       <UserTrips />
     </main>
   );
 };
+
+export default Dashboard;
