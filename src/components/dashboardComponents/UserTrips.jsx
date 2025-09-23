@@ -15,40 +15,23 @@ import { Calendar, Plane, Star, Users } from "lucide-react";
 import { Badge } from "../ui/badge";
 
 const UserTrips = () => {
-  // const {data, loading, error} = useApi("/trips");
+  const { data, loading, error } = useApi("/trips");
 
-  // if(loading) return <Loading text='Getting your trips' />
-  // if(error) return <div>Error: {error.message}</div>
-  // console.log(data);
+  function formatDate(isoString) {
+    const date = new Date(isoString);
+    return date.toLocaleDateString("en-GB", {
+      day: "2-digit",
+      month: "short",
+      year: "numeric",
+    });
+  }
 
-  const data = [
-    {
-      _id: 1,
-      title: "Paris, France Trip",
-      budget: 2000,
-      startDate: "2023-10-01",
-      endDate: "2023-10-01",
-    },
-    {
-      _id: 2,
-      title: "London, UK Trip",
-      budget: 2000,
-      startDate: "2023-10-01",
-      endDate: "2023-10-01",
-    },
-    {
-      _id: 3,
-      title: "New York, USA Trip",
-      budget: 2000,
-      startDate: "2023-10-01",
-      endDate: "2023-10-01",
-    },
-  ];
+  if (loading) return <Loading text="Getting your trips" />;
+  if (error) return <div>Error: {error.message}</div>;
 
   return (
     <section>
-      <h2 className="text-2xl font-bold mb-4">Your Trips</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {data.map((trip) => {
           return (
             <Card
@@ -63,7 +46,7 @@ const UserTrips = () => {
                   </div>
                   <div className="text-right">
                     <span className="text-2xl font-bold text-blue-600">
-                      ${trip.budget}
+                      ${trip.budget.total}
                     </span>
                     <p className="text-sm text-gray-600">per person</p>
                   </div>
@@ -74,35 +57,35 @@ const UserTrips = () => {
                 <div className="flex items-center justify-between text-sm text-gray-600 my-8">
                   <div className="flex items-center">
                     <Calendar className="h-4 w-4 mr-1" />
-                    {trip.startDate} - {trip.endDate}
+                    {formatDate(trip.startDate)} - {formatDate(trip.endDate)}
                   </div>
                   <div className="flex items-center">
                     <Users className="h-4 w-4 mr-1" />
-                    {5}
+                    {trip.collaborators.length + 1}
                   </div>
                 </div>
 
                 <div className="mb-4">
                   <div className="flex flex-wrap gap-1">
-                    {["place 1", "place 2", "place 3"]
-                      .slice(0, 3)
-                      .map((highlight, index) => (
-                        <Badge
-                          key={index}
-                          variant="secondary"
-                          className="text-xs"
-                        >
-                          {highlight}
-                        </Badge>
-                      ))}
+                    {trip.destinations.slice(0, 3).map((destination, index) => (
+                      <Badge
+                        key={index}
+                        variant="secondary"
+                        className="text-xs"
+                      >
+                        {destination}
+                      </Badge>
+                    ))}
                   </div>
                 </div>
 
                 <div className="flex gap-2">
-                  <Button className="w-full">
-                    <Plane className="mr-2 h-4 w-4" />
-                    View Trip
-                  </Button>
+                  <a href={`/trips/${trip._id}`} className="w-full">
+                    <Button className="w-full">
+                      <Plane className="mr-2 h-4 w-4" />
+                      View Trip
+                    </Button>
+                  </a>
                 </div>
               </CardContent>
             </Card>
