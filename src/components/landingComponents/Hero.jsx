@@ -19,9 +19,9 @@ const Hero = () => {
 
         <p className="px-20 text-lg text-white">
           {" "}
-          <pre> "Exploring the world, gently and wisely, </pre>
-          <pre>Travel with wonder, live with wisdom,</pre>
-          <pre>Wander freely, choose wisely.” </pre>
+          <span>"Exploring the world, gently and wisely,</span>
+          <span>Travel with wonder, live with wisdom,</span>
+          <span>Wander freely, choose wisely.”</span>
         </p>
         <div className="flex items-center gap-4">
           <a href="/trips">
