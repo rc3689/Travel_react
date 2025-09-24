@@ -189,7 +189,7 @@ const PackingList = ({ selectedTripId }) => {
 
       {/* Packing Items */}
       <div className="space-y-4">
-        {packingItems.length === 0 ? (
+        {packingItems?.length === 0 ? (
           <Card>
             <CardContent className="text-center py-12">
               <Package className="h-12 w-12 text-gray-400 mx-auto mb-4" />
